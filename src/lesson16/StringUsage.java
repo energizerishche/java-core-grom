@@ -9,7 +9,7 @@ public class StringUsage {
         System.out.println(result);
 
         char charVariable = 't';
-        char charVariable1 = 't';
+        char charVariable1 = 'o';
 
         char[] chars = {charVariable, charVariable1};
 
