@@ -130,7 +130,7 @@ public class UserRepository {
     public User getUserBySessionId(String sessionId) {
         if (sessionId != null) {
             for (User user : this.users) {
-                if (user != null && user.getSessionId() == sessionId) {
+                if (user != null && sessionId.equals(user.getSessionId())) {
                     return this.getUserByName(user.getName());
                 }
             }
@@ -143,7 +143,7 @@ public class UserRepository {
         if (this.users != null && name != null) {
             int index = 0;
             for (User user : this.users) {
-                if (user != null && user.getName() == name) {
+                if (user != null && name.equals(user.getName())) {
                     return index;
                 }
                 index++;
