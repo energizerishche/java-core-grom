@@ -18,15 +18,17 @@ public class StringMethods {
 
         System.out.println(test.replaceAll("me", "T"));
 
+        System.out.println(test);
         System.out.println(test.contains("mes"));
 
+        System.out.println(test);
         String phrase = "Hello there guys";
-        System.out.println(Arrays.toString(phrase.split("e")));
+        System.out.println(Arrays.toString(phrase.split(" ")));
 
         System.out.println(" test a".trim());
 
         System.out.println(phrase.substring(5));
-        System.out.println(phrase.substring(5, 8));
+        System.out.println(phrase.substring(5, 10).trim());
 
         System.out.println(test.toUpperCase());
         System.out.println(test.toLowerCase());
