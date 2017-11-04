@@ -19,8 +19,18 @@ public class Controller {
 
         for (API api : apis) {
             for (Room room : api.findRooms(price, persons, city, hotel)) {
-                tempResult[counter] = room;
-                counter++;
+                if (room != null) {
+                    boolean needAddRoom = true;
+                    for (Room alreadyAddedRoom : tempResult) {
+                        if (room.equals(alreadyAddedRoom)) {
+                            needAddRoom = false;
+                        }
+                    }
+                    if (needAddRoom) {
+                        tempResult[counter] = room;
+                        counter++;
+                    }
+                }
             }
         }
 
@@ -45,16 +55,12 @@ public class Controller {
 
         for (Room roomFromApi1 : api1.getAll()) {
             for (Room roomFromApi2 : api2.getAll()) {
-                if (roomFromApi1 != null
-                    && roomFromApi2 != null
+                if (roomFromApi2 != null
+                    && roomFromApi2.equals(roomFromApi1)
                     && roomFromApi1.getPersons() > 0
-                    && roomFromApi1.getPersons() == roomFromApi2.getPersons()
                     && roomFromApi1.getCityName() != null
-                    && roomFromApi1.getCityName().equals(roomFromApi2.getCityName())
                     && roomFromApi1.getPrice() > 0
-                    && roomFromApi1.getPrice() == roomFromApi2.getPrice()
                     && roomFromApi1.getHotelName() != null
-                    && roomFromApi1.getHotelName().equals(roomFromApi2.getHotelName())
                 ) {
                     tempResult[counter] = roomFromApi1;
                     resultArraysLength++;
